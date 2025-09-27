@@ -1,9 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import ResumeUpload from '../Components/ResumeUpload'
+import InfoGatheringForm from '../Components/InfoGatheringForm'
+import InterviewLobby from '../Components/InterviewLobby'
 
 const IntervieweePage = () => {
-  const interviewStatus=useSelector((state)=>state.interview.InterviewStatus)
+  const interviewStatus=useSelector((state)=>state.interview.interviewStatus)
   console.log(interviewStatus)
 
   const renderContent = () =>{
@@ -11,9 +13,9 @@ const IntervieweePage = () => {
       case 'pending-resume':
         return <ResumeUpload />;
       case 'info-gathering':
-        return <div>Information Gathering Form</div>; 
+        return <InfoGatheringForm/>; 
       case 'ready-to-start':
-         return <div>Ready to Start Interview</div>;
+         return <InterviewLobby/>;
       case 'in-progress':
         return <div>Interview in Progress...</div>;
       case 'completed':
